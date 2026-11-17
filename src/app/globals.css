@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+:root {
+  --primary: #8C8265;        /* Warm Olive-Taupe - section banners, card buttons & accents */
+  --primary-dark: #2C291E;   /* Deep Olive-Charcoal - primary CTA buttons & dark badges */
+  --dark-bg: #1B1A16;        /* Rich Espresso-Black - dark showcase section & footer */
+  --light-bg: #ECE7DC;       /* Warm Sand-Beige - cards, FAQ bars & icon circles */
+}
+
+html {
+  scroll-behavior: smooth;
+}
