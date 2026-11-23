@@ -16,6 +16,7 @@ export default function Navbar() {
     { name: 'Achievements', href: '/achievements' },
     { name: 'Activities', href: '/activities' },
     { name: 'Contact', href: '/contact' },
+    { name: 'Projects', href: '/projects' },
   ];
 
   return (
@@ -23,7 +24,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Brand Logo */}
         <Link href="/" className="text-2xl font-extrabold tracking-tight text-[var(--dark-bg)]">
-          TS<span className="text-[var(--primary)]"></span>
+          THRI<span className="text-[var(--primary)]"></span>
         </Link>
 
         {/* Desktop Links */}
@@ -53,22 +54,8 @@ export default function Navbar() {
                 pathname === '/projects' ? 'text-[var(--primary)]' : ''
               }`}
             >
-              Projects <ChevronDown className="w-4 h-4" />
+              Projects 
             </Link>
-
-            {dropdownOpen && (
-              <div className="absolute left-0 top-full w-56 bg-white shadow-xl rounded-md border border-slate-100 py-2 animate-fadeIn">
-                <Link href="/projects?cat=web" className="block px-4 py-2.5 text-sm hover:bg-[var(--light-bg)] hover:text-[var(--primary)]">
-                  Web Development
-                </Link>
-                <Link href="/projects?cat=mobile" className="block px-4 py-2.5 text-sm hover:bg-[var(--light-bg)] hover:text-[var(--primary)]">
-                  Mobile Applications
-                </Link>
-                <Link href="/projects?cat=uiux" className="block px-4 py-2.5 text-sm hover:bg-[var(--light-bg)] hover:text-[var(--primary)]">
-                  UI/UX Case Studies
-                </Link>
-              </div>
-            )}
           </div>
 
           <Link
@@ -113,9 +100,6 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-          <Link href="/projects" onClick={() => setMobileOpen(false)} className="block py-2 hover:text-[var(--primary)]">
-            Projects
-          </Link>
           <a href="/cv.pdf" className="inline-block bg-[var(--primary)] text-white px-5 py-2.5 rounded text-sm">
             Download CV
           </a>

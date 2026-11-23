@@ -4,13 +4,12 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Check, Code2, Smartphone, Search, Palette, Kanban, PhoneCall, ArrowRight
+  Check, Code2, Smartphone, PhoneCall, ArrowRight, Cpu, Zap
 } from 'lucide-react';
 import Reveal from '@/components/ui/Reveal';
 
 const slides = [
   {
-    subtitle: 'Creative & Innovative',
     title: 'Hi, I am Thrichethra Sivarajah',
     description: 'Undergraduate Software Engineer at Informatics Institute of Technology, Westminster UK',
     primaryBtn: { label: 'Explore Projects', href: '/projects' },
@@ -19,11 +18,30 @@ const slides = [
 ];
 
 const interestAreas = [
-  { icon: Code2, title: 'Web Development', stack: 'Next.js | React | TypeScript | Tailwind CSS' },
-  { icon: Smartphone, title: 'Apps Development', stack: 'Flutter | React Native | Kotlin' },
-  { icon: Search, title: 'UI/UX Research', stack: 'User Interviews | Wireframing | Usability Testing' },
-  { icon: Palette, title: 'UI/UX Design', stack: 'Figma | Adobe XD | Prototyping' },
-  { icon: Kanban, title: 'Project Management', stack: 'Jira | ClickUp | Agile Scrum' },
+  {
+    icon: Code2,
+    title: 'Full-Stack Web Development',
+    description: 'Building responsive, SEO-ready web apps with dynamic filtering, state persistence, and clean API integration.',
+    stack: 'Next.js • React • TypeScript • Tailwind CSS',
+    href: '/projects?category=web',
+    projectTag: 'Featured: RentUP & E-Commerce',
+  },
+  {
+    icon: Cpu,
+    title: 'Applied AI & NLP Systems',
+    description: 'Optimizing LLM inference latency, INT8 model quantization, and context-pruning pipelines for real-world deployment.',
+    stack: 'Python • ONNX Runtime • DistilBERT • Ollama',
+    href: '/projects?category=ai',
+    projectTag: 'Featured: DistilCompress (FYP)',
+  },
+  {
+    icon: Smartphone,
+    title: 'Cross-Platform Mobile & UI',
+    description: 'Developing intuitive mobile interfaces and user-tested workflows backed by Figma prototyping and clean architecture.',
+    stack: 'Flutter • React Native • Kotlin • Figma',
+    href: '/projects?category=mobile',
+    projectTag: 'View Mobile Builds',
+  },
 ];
 
 export default function HomePage() {
@@ -44,9 +62,6 @@ export default function HomePage() {
               exit={{ opacity: 0, y: -25 }}
               transition={{ duration: 0.5 }}
             >
-              <p className="uppercase tracking-widest text-sm font-bold text-[var(--primary)] mb-3">
-                {slides[currentSlide].subtitle}
-              </p>
               <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight mb-6">
                 {slides[currentSlide].title}
               </h1>
@@ -79,15 +94,15 @@ export default function HomePage() {
             <Reveal>
               <p className="text-[var(--primary)] font-bold uppercase tracking-wider text-sm mb-2">About Me</p>
               <p className="text-slate-600 leading-relaxed mb-4">
-                I am currently pursuing my Bachelor's degree in Computer Science at the Informatics Institute of Technology (IIT), affiliated with the University of Westminster, UK. Alongside gaining hands-on expertise across diverse technical domains and collaborative team projects, I actively stay involved in campus life from sports and talent shows to running my own creative brand—which shapes how I solve problems and design user-focused software.
+                I am currently pursuing my Bachelor&apos;s degree in Computer Science at the Informatics Institute of Technology (IIT), affiliated with the University of Westminster, UK. Alongside gaining hands-on expertise across diverse technical domains and collaborative team projects, I actively stay involved in campus life from sports and talent shows to running my own creative brand which shapes how I solve problems and design user-focused software.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 mb-8">
                 {[
                   'Web Application Development',
+                  'Applied AI & NLP Systems',
                   'Mobile App Development',
-                  'UI/UX Research & Design',
-                  'Software Architecture',
+                  'Software Architecture & UI/UX',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3 font-bold text-[var(--dark-bg)]">
                     <Check className="w-5 h-5 text-[var(--primary)] shrink-0" />
@@ -119,48 +134,78 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. INTEREST AREAS / SERVICES GRID */}
+      {/* 3. ENGINEERING FOCUS / PROJECT ROUTER GRID */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <p className="text-[var(--primary)] font-bold uppercase tracking-wider text-sm mb-2">
-                My Interest Areas
+                What I Build
               </p>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--dark-bg)]">
-                Custom Digital Solutions & Technical Expertise
+                Engineering Focus &amp; Project Domains
               </h2>
             </div>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {interestAreas.map((area, idx) => (
               <Reveal key={area.title} delay={idx * 0.1}>
-                <div className="group bg-[var(--light-bg)] hover:bg-white p-8 rounded-lg shadow-sm hover:shadow-xl transition duration-300 text-center flex flex-col items-center h-full">
-                  <div className="w-16 h-16 bg-[var(--primary)] text-white rounded rotate-45 flex items-center justify-center mb-8 group-hover:scale-110 transition">
-                    <area.icon className="w-7 h-7 -rotate-45" />
+                <Link
+                  href={area.href}
+                  className="group bg-[var(--light-bg)] hover:bg-white p-8 rounded-xl shadow-sm hover:shadow-xl border border-transparent hover:border-[var(--primary)]/20 transition duration-300 flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-14 h-14 bg-[var(--primary)] text-white rounded-lg flex items-center justify-center group-hover:scale-105 transition">
+                        <area.icon className="w-7 h-7" />
+                      </div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-[var(--primary)] bg-[var(--primary)]/10 px-3 py-1 rounded-full">
+                        {area.projectTag}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-[var(--dark-bg)] mb-2 group-hover:text-[var(--primary)] transition">
+                      {area.title}
+                    </h3>
+                    <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                      {area.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-[var(--dark-bg)] mb-3">{area.title}</h3>
-                  <p className="text-slate-600 text-sm mb-6">{area.stack}</p>
-                  <Link
-                    href="/projects"
-                    className="mt-auto w-10 h-10 rounded bg-[var(--primary)] text-white flex items-center justify-center opacity-90 group-hover:opacity-100 transition"
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
+
+                  <div className="pt-4 border-t border-slate-200/70 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-slate-500">{area.stack}</span>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--primary)]">
+                      Explore <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
+                    </span>
+                  </div>
+                </Link>
               </Reveal>
             ))}
 
             {/* Highlighted Contact CTA Card */}
-            <Reveal delay={0.5}>
-              <div className="bg-[var(--primary)] text-white p-8 rounded-lg shadow-lg text-center flex flex-col justify-center items-center h-full">
-                <h3 className="text-2xl font-extrabold mb-3">Let's Collaborate</h3>
-                <p className="text-white/90 text-sm mb-6 leading-relaxed">
-                  Have a project in mind, exciting ideas to share, or want to connect? Reach out anytime.
-                </p>
-                <div className="flex items-center gap-2 text-xl font-extrabold">
-                  <PhoneCall className="w-5 h-5" /> +94 7X XXX XXXX
+            <Reveal delay={0.3}>
+              <div className="bg-[var(--primary)] text-white p-8 rounded-xl shadow-lg flex flex-col justify-between h-full">
+                <div>
+                  <span className="inline-block text-xs font-bold uppercase tracking-wider bg-white/15 px-3 py-1 rounded-full mb-6">
+                    Open to Opportunities
+                  </span>
+                  <h3 className="text-2xl font-extrabold mb-3">Let&apos;s Collaborate</h3>
+                  <p className="text-white/90 text-sm leading-relaxed mb-6">
+                    Have a project in mind, exciting ideas to share, or looking for a software engineering collaborator? Reach out anytime.
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-white/20 flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex items-center gap-2 text-lg font-extrabold">
+                    <PhoneCall className="w-5 h-5" /> +94 76 709 0987
+                  </div>
+                  <Link
+                    href="/contact"
+                    className="bg-white text-[var(--dark-bg)] hover:bg-slate-100 font-bold text-sm px-5 py-2.5 rounded transition"
+                  >
+                    Get in Touch
+                  </Link>
                 </div>
               </div>
             </Reveal>
@@ -171,36 +216,75 @@ export default function HomePage() {
       {/* 4. SIGNATURE PROJECT SPOTLIGHT */}
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <Reveal direction="left">
-            <div className="aspect-video rounded-xl bg-[var(--light-bg)] border border-slate-200 flex items-center justify-center text-slate-400 font-semibold">
-              Signature Project Screenshot (/public/featured-project.png)
-            </div>
-          </Reveal>
-
           <Reveal direction="right">
-            <p className="text-[var(--primary)] font-bold uppercase tracking-wider text-sm mb-2">
-              My Signature Project
-            </p>
+            <span className="inline-block bg-[var(--primary)]/10 text-[var(--primary)] font-bold uppercase tracking-wider text-xs px-3 py-1 rounded-full mb-3">
+              Final Year Research &amp; Engineering Project
+            </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--dark-bg)] mb-5">
-              Featured Project Title
+              DistilCompress — Latency-Aware LLM Prompt Compression
             </h2>
             <p className="text-slate-600 leading-relaxed mb-6">
-              Describe your flagship project here—what problem it solves, the tech stack used, and your role in building it.
+              An adaptive context-pruning pipeline built to cut Time-To-First-Token (TTFT) latency for long multi-document LLM prompts (1k–8k+ tokens) while preserving answer accuracy. Using SpaCy sentence segmentation, an INT8-quantized DistilBERT scorer on ONNX Runtime CPU, a Dynamic Budget Controller with break-even bypass logic, and local Ollama (Llama 3.2 3B) inference with a Streamlit dashboard, I architected the full scoring pipeline and latency evaluation framework.
             </p>
 
             <div className="grid grid-cols-2 gap-3 mb-8 font-bold text-[var(--dark-bg)] text-sm">
-              <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[var(--primary)]" /> Real-Time Features</div>
-              <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[var(--primary)]" /> Modern Responsive UI</div>
-              <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[var(--primary)]" /> Scalable Backend</div>
-              <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[var(--primary)]" /> User-Tested Design</div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-[var(--primary)] shrink-0" /> INT8 DistilBERT (ONNX CPU)
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-[var(--primary)] shrink-0" /> Dynamic Budget Controller
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-[var(--primary)] shrink-0" /> TTFT Latency Optimization
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-[var(--primary)] shrink-0" /> Streamlit &amp; Ollama Prototype
+              </div>
             </div>
 
-            <Link
-              href="/projects"
-              className="inline-block bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white font-bold px-8 py-3.5 rounded transition"
-            >
-              View All Projects
-            </Link>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/projects"
+                className="inline-block border-2 border-[var(--dark-bg)] hover:bg-[var(--dark-bg)] hover:text-white text-[var(--dark-bg)] font-bold px-8 py-3.5 rounded transition"
+              >
+                View All Projects
+              </Link>
+            </div>
+          </Reveal>
+
+          {/* Right Column: DistilCompress Architecture Pipeline */}
+          <Reveal direction="left">
+            <div className="bg-[var(--dark-bg)] text-white p-8 rounded-2xl border border-slate-800 shadow-xl">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <div className="flex items-center gap-2.5">
+                  <Cpu className="w-5 h-5 text-[var(--primary)]" />
+                  <span className="font-bold text-sm tracking-wide uppercase text-slate-300">
+                    DistilCompress Architecture
+                  </span>
+                </div>
+                <span className="text-xs font-semibold bg-amber-500/20 text-amber-300 px-2.5 py-1 rounded">
+                  FYP • In Progress
+                </span>
+              </div>
+
+              <div className="space-y-4 text-sm">
+                <div className="p-4 rounded-lg bg-slate-900/90 border border-slate-800">
+                  <p className="text-xs uppercase tracking-wider text-slate-400 mb-1">01. Preprocessing &amp; Scoring</p>
+                  <p className="font-semibold text-white">SpaCy Sentence Splitting + INT8 DistilBERT (ONNX CPU)</p>
+                </div>
+                <div className="p-4 rounded-lg bg-slate-900/90 border border-slate-800">
+                  <p className="text-xs uppercase tracking-wider text-slate-400 mb-1">02. Dynamic Budget Controller</p>
+                  <p className="font-semibold text-white">Break-Even Bypass Check (L &lt; L*) &amp; Top-K% Pruning</p>
+                </div>
+                <div className="p-4 rounded-lg bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-slate-400 mb-1">03. Inference &amp; Evaluation UI</p>
+                    <p className="font-semibold text-white">Ollama (Llama 3.2 3B) + Streamlit TTFT Dashboard</p>
+                  </div>
+                  <Zap className="w-5 h-5 text-[var(--primary)] shrink-0" />
+                </div>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

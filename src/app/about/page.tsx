@@ -33,8 +33,6 @@ const headerBgImages = [
   '/16.jpeg',
   '/17.jpeg',
   '/18.jpeg',
-
-
 ];
 
 const education = [
@@ -44,7 +42,7 @@ const education = [
       'Informatics Institute of Technology (IIT) — Affiliated with the University of Westminster, London',
     period: '2023 – Present',
     details:
-      'Key Modules: Software Development Group Project, Object-Oriented Programming, Advanced Client-side Development, Web Design & Development, Database Systems, Algorithms, Client-Server Architecture, Software Development I (Python, Java), Computer Systems Fundamentals, Mathematics in Computing, and Trends in Computer Science.',
+      'Final-Year Research (FYP): DistilCompress — Latency-Aware LLM Prompt Compression. Key Modules: Software Development Group Project, Object-Oriented Programming, Advanced Client-side Development, Web Design & Development, Database Systems, Algorithms, Client-Server Architecture, Software Development I (Python, Java), Computer Systems Fundamentals, Mathematics in Computing, and Trends in Computer Science.',
   },
   {
     degree: 'Diploma in English Language & Diploma in ICT',
@@ -65,11 +63,34 @@ const education = [
 const skillGroups = [
   {
     category: 'Programming & Web Technologies',
-    items: ['Python', 'Java', 'JavaScript', 'HTML', 'CSS', 'ReactJS', 'Bootstrap'],
+    items: [
+      'Python',
+      'Java',
+      'JavaScript',
+      'TypeScript',
+      'C#',
+      'PHP',
+      'HTML',
+      'CSS',
+      'ReactJS',
+      'Next.js',
+      'Nest.JS',
+      'Tailwind CSS',
+      'Bootstrap',
+    ],
   },
   {
-    category: 'Databases',
-    items: ['MySQL', 'SQL Server Management Studio'],
+    category: 'AI, Databases & Backend Tools',
+    items: [
+      'ONNX Runtime',
+      'DistilBERT',
+      'Ollama',
+      'Streamlit',
+      'MySQL',
+      'MS SQL Server',
+      'REST APIs',
+      'Git & GitHub',
+    ],
   },
   {
     category: 'Software & Design Tools',
@@ -92,7 +113,8 @@ const skillGroups = [
       'Problem-Solving',
       'Time Management',
       'English',
-      'Indian Tamil',
+      'Tamil',
+      'Sinhala',
     ],
   },
 ];
@@ -169,16 +191,20 @@ export default function AboutPage() {
             Thrichethra Sivarajah
           </h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            A final-year Bachelor&apos;s degree undergraduate in
-            Computer Science at the Informatics Institute of Technology (IIT), affiliated with
-            the University of Westminster, London. I have a strong interest in Software
-            Engineering, full-stack development, and UI/UX design, with a passion for building
-            innovative, user-focused, and scalable software solutions.
+            I am a final-year BSc (Hons) Computer Science undergraduate at the Informatics
+            Institute of Technology (IIT), affiliated with the University of Westminster,
+            London. Passionate about full-stack engineering, front-end interfaces, back-end
+            systems, UI/UX designing, and applied AI/NLP, I focus on turning complex
+            technical ideas into clean, scalable, and user-centered software.
           </p>
           <p className="text-slate-600 leading-relaxed mb-6">
-            Currently seeking opportunities to apply and grow my technical skills through
-            real-world projects and collaborative teams, I bring strong analytical thinking,
-            communication, and leadership shaped by both technical builds and active campus life.
+            Through my academic coursework, collaborative group builds, and my final-year
+            research project on latency-aware LLM prompt compression, I have gained hands-on
+            experience across the full software development lifecycle—from wireframing and
+            system architecture to API integration and performance benchmarking. Currently
+            seeking opportunities to contribute to real-world engineering teams, I bring
+            strong analytical problem-solving, adaptability, and leadership shaped by both
+            technical projects and active campus life.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 pt-2">
@@ -187,7 +213,7 @@ export default function AboutPage() {
               Colombo / Pannipitiya, Sri Lanka
             </span>
             <span>•</span>
-            <span>Languages: English &amp; Indian Tamil</span>
+            <span>Languages: English, Tamil &amp; Sinhala</span>
           </div>
         </Reveal>
       </section>
@@ -316,13 +342,6 @@ export default function AboutPage() {
 
           {/* Bottom Navigation Buttons */}
           <div className="flex flex-wrap gap-4 mt-12 pt-8 border-t border-slate-200">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white font-bold px-7 py-3.5 rounded transition"
-            >
-              <Sparkles className="w-4 h-4" />
-              Explore My Projects
-            </Link>
             <Link
               href="/contact"
               className="border-2 border-[var(--dark-bg)] text-[var(--dark-bg)] hover:bg-[var(--dark-bg)] hover:text-white font-bold px-7 py-3.5 rounded transition"

@@ -115,7 +115,6 @@ export default function ProjectsPage() {
             { id: 'all', label: 'All Projects' },
             { id: 'web', label: 'Web Development' },
             { id: 'mobile', label: 'Games & Interactive' },
-            { id: 'uiux', label: 'UI/UX Design' },
           ].map((tab) => (
             <button
               key={tab.id}

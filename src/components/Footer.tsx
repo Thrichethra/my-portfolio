@@ -7,10 +7,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 pb-12 border-b border-white/10">
         <div>
           <h3 className="text-2xl font-bold text-white mb-4">
-            Thrichethra<span className="text-[var(--primary)]">.dev</span>
+            Thrichethra Sivarajah
           </h3>
           <p className="text-sm leading-relaxed text-slate-400">
-            Passionate Software Developer & UI/UX Enthusiast crafting user-centric web and mobile solutions.
+            Passionate Software Developer.
           </p>
         </div>
 
@@ -21,10 +21,10 @@ export default function Footer() {
               <MapPin className="w-4 h-4 text-[var(--primary)]" /> Colombo, Sri Lanka
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-[var(--primary)]" /> your.email@gmail.com
+              <Mail className="w-4 h-4 text-[var(--primary)]" /> chethra19@gmail.com
             </li>
             <li className="flex items-center gap-3">
-              <Phone className="w-4 h-4 text-[var(--primary)]" /> +94 7X XXX XXXX
+              <Phone className="w-4 h-4 text-[var(--primary)]" /> +94 76 709 0987
             </li>
           </ul>
         </div>
