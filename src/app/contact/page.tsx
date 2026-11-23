@@ -48,7 +48,7 @@ export default function ContactPage() {
             </div>
             <div>
               <p className="text-sm font-bold text-slate-500">Email Address</p>
-              <h4 className="text-lg font-extrabold text-[var(--primary)]">your.email@gmail.com</h4>
+              <h4 className="text-lg font-extrabold text-[var(--primary)]">chethra19@gmail.com</h4>
             </div>
           </div>
 
