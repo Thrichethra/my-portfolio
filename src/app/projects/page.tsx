@@ -18,7 +18,7 @@ const allProjects = [
       'Integrated key e-commerce features such as a shopping cart, invoice generation logic, and local storage capabilities for persistent user cart data.',
       'Utilized Figma during the design phase to create high-fidelity wireframes and prototypes, ensuring a polished and intuitive user experience (UX/UI).',
     ],
-    githubUrl: 'https://github.com/Thrichethra/fullstack-react-online_shopping_webside',
+    githubUrl: 'https://github.com/Thrichethra/havenly-shopping-platform',
     figmaUrl: '',
     deployUrl: '',
   },
