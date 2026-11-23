@@ -4,17 +4,15 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Trophy, FolderCheck, Award, Check, Code2, Smartphone,
-  Search, Palette, Kanban, PhoneCall, ChevronLeft, ChevronRight, ArrowRight
+  Check, Code2, Smartphone, Search, Palette, Kanban, PhoneCall, ArrowRight
 } from 'lucide-react';
 import Reveal from '@/components/ui/Reveal';
-import AnimatedCounter from '@/components/ui/AnimatedCounter';
 
 const slides = [
   {
     subtitle: 'Creative & Innovative',
     title: 'Hi, I am Thrichethra Sivarajah',
-    description: 'Undergraduate Software Engineer',
+    description: 'Undergraduate Software Engineer at Informatics Institute of Technology, Westminster UK',
     primaryBtn: { label: 'Explore Projects', href: '/projects' },
     secondaryBtn: { label: 'Contact Me', href: '/contact' },
   },
@@ -29,14 +27,11 @@ const interestAreas = [
 ];
 
 export default function HomePage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const [currentSlide] = useState(0);
 
   return (
     <div>
-      {/* 1. HERO CAROUSEL */}
+      {/* 1. HERO SECTION */}
       <section className="relative bg-[var(--dark-bg)] text-white min-h-[78vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[--dark-bg] via-[--dark-bg]/90 to-[--dark-bg]/20" />
 
@@ -77,55 +72,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. OVERLAPPING FACTS / COUNTER BAR */}
-      <section className="max-w-6xl mx-auto px-6 -mt-16 relative z-20">
-        <div className="grid md:grid-cols-3 shadow-xl rounded-lg overflow-hidden">
-          <div className="bg-[var(--primary)] text-white p-8 flex items-center gap-5">
-            <div className="w-14 h-14 bg-white text-[var(--primary)] rounded flex items-center justify-center shrink-0">
-              <Trophy className="w-7 h-7" />
-            </div>
-            <div>
-              <p className="font-semibold text-sm uppercase tracking-wider opacity-90">Competitions</p>
-              <h2 className="text-4xl font-extrabold"><AnimatedCounter target={10} />+</h2>
-            </div>
-          </div>
-
-          <div className="bg-[var(--light-bg)] text-[var(--dark-bg)] p-8 flex items-center gap-5">
-            <div className="w-14 h-14 bg-[var(--primary)] text-white rounded flex items-center justify-center shrink-0">
-              <FolderCheck className="w-7 h-7" />
-            </div>
-            <div>
-              <p className="font-semibold text-sm uppercase tracking-wider text-[var(--primary)]">Projects Done</p>
-              <h2 className="text-4xl font-extrabold"><AnimatedCounter target={15} />+</h2>
-            </div>
-          </div>
-
-          <div className="bg-[var(--primary)] text-white p-8 flex items-center gap-5">
-            <div className="w-14 h-14 bg-white text-[var(--primary)] rounded flex items-center justify-center shrink-0">
-              <Award className="w-7 h-7" />
-            </div>
-            <div>
-              <p className="font-semibold text-sm uppercase tracking-wider opacity-90">Certifications</p>
-              <h2 className="text-4xl font-extrabold"><AnimatedCounter target={25} />+</h2>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. ABOUT ME SECTION */}
+      {/* 2. ABOUT ME SECTION */}
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-8">
             <Reveal>
               <p className="text-[var(--primary)] font-bold uppercase tracking-wider text-sm mb-2">About Me</p>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--dark-bg)] mb-6 leading-snug">
-                Bridging Creativity and Technology to Craft User-Centric Solutions
-              </h2>
               <p className="text-slate-600 leading-relaxed mb-4">
-                I am Thrichethra Sivarajah, a passionate Computer Science undergraduate with a strong focus on Full-Stack Web Development, Mobile Applications, and UI/UX Design.
-              </p>
-              <p className="text-slate-600 leading-relaxed mb-8">
-                Replace this paragraph with your personal story, academic background, and what drives your passion for building software.
+                I am currently pursuing my Bachelor's degree in Computer Science at the Informatics Institute of Technology (IIT), affiliated with the University of Westminster, UK. Alongside gaining hands-on expertise across diverse technical domains and collaborative team projects, I actively stay involved in campus life from sports and talent shows to running my own creative brand—which shapes how I solve problems and design user-focused software.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -153,19 +107,19 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <Reveal direction="right">
               <img
                 src="/profile1.jpeg"
                 alt="Thrichethra Sivarajah"
-                className="aspect-[4/5] w-full object-cover rounded-xl border-2 border-[var(--primary)]/20"
+                className="w-full max-w-[500px] h-full mx-auto rounded-xl border-2 border-[var(--primary)]/20 shadow-md"
               />
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* 4. INTEREST AREAS / SERVICES GRID */}
+      {/* 3. INTEREST AREAS / SERVICES GRID */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <Reveal>
@@ -214,7 +168,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. SIGNATURE PROJECT SPOTLIGHT */}
+      {/* 4. SIGNATURE PROJECT SPOTLIGHT */}
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <Reveal direction="left">

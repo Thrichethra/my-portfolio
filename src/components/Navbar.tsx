@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Brand Logo */}
         <Link href="/" className="text-2xl font-extrabold tracking-tight text-[var(--dark-bg)]">
-          TS<span className="text-[var(--primary)]">.Portfolio</span>
+          TS<span className="text-[var(--primary)]"></span>
         </Link>
 
         {/* Desktop Links */}
