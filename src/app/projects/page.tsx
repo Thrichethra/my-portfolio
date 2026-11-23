@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { GitBranch, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { GitBranch, ExternalLink, CheckCircle2, Globe } from 'lucide-react';
 import Reveal from '@/components/ui/Reveal';
 
 const allProjects = [
@@ -20,6 +20,7 @@ const allProjects = [
     ],
     githubUrl: 'https://github.com/Thrichethra/fullstack-react-online_shopping_webside',
     figmaUrl: '',
+    deployUrl: '',
   },
   {
     title: 'EduQuest — Gamified Learning Platform',
@@ -35,6 +36,7 @@ const allProjects = [
     ],
     githubUrl: 'https://github.com/Thrichethra',
     figmaUrl: '',
+    deployUrl: '',
   },
   {
     title: 'Real-Time Event Ticketing System',
@@ -48,6 +50,7 @@ const allProjects = [
     ],
     githubUrl: 'https://github.com/Thrichethra',
     figmaUrl: '',
+    deployUrl: '',
   },
   {
     title: 'Estate Agent Web Application',
@@ -60,8 +63,8 @@ const allProjects = [
       'Created dynamic components for filtering and sorting property listings based on criteria such as location, price, property type, and features, significantly enhancing user discoverability.',
     ],
     githubUrl: 'https://github.com/Thrichethra/Estate-Property',
-    deployUrl: 'https://estate-property.vercel.app/',
     figmaUrl: '',
+    deployUrl: 'https://estate-property-di3i3wkji-thrichethras-projects.vercel.app/',
   },
   {
     title: 'Atlas Pharma Company Website',
@@ -76,6 +79,7 @@ const allProjects = [
     ],
     githubUrl: 'https://github.com/Thrichethra',
     figmaUrl: '',
+    deployUrl: '',
   },
   {
     title: 'Eco Cafe Web Application',
@@ -90,6 +94,7 @@ const allProjects = [
     ],
     githubUrl: 'https://github.com/Thrichethra',
     figmaUrl: '',
+    deployUrl: '',
   },
 ];
 
@@ -171,12 +176,23 @@ export default function ProjectsPage() {
 
                 {/* Project Links */}
                 <div className="flex flex-wrap gap-4 pt-4 border-t border-slate-200">
+                  {proj.deployUrl && (
+                    <a
+                      href={proj.deployUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white text-sm font-bold px-5 py-2.5 rounded transition shadow-sm"
+                    >
+                      <Globe className="w-4 h-4" />
+                      View Live Demo
+                    </a>
+                  )}
                   {proj.githubUrl && (
                     <a
                       href={proj.githubUrl}
                       target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 bg-[var(--dark-bg)] hover:bg-[var(--primary)] text-white text-sm font-bold px-5 py-2.5 rounded transition"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-[var(--dark-bg)] hover:bg-slate-800 text-white text-sm font-bold px-5 py-2.5 rounded transition"
                     >
                       <GitBranch className="w-4 h-4" />
                       View Project on GitHub
@@ -186,7 +202,7 @@ export default function ProjectsPage() {
                     <a
                       href={proj.figmaUrl}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 border-2 border-[var(--dark-bg)] text-[var(--dark-bg)] hover:bg-[var(--dark-bg)] hover:text-white text-sm font-bold px-5 py-2.5 rounded transition"
                     >
                       <ExternalLink className="w-4 h-4" />
