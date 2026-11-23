@@ -3,20 +3,19 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Download } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Achievements', href: '/achievements' },
     { name: 'Activities', href: '/activities' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Projects', href: '/projects' },
   ];
 
   return (
@@ -24,62 +23,28 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Brand Logo */}
         <Link href="/" className="text-2xl font-extrabold tracking-tight text-[var(--dark-bg)]">
-          THRI<span className="text-[var(--primary)]"></span>
+          THRI<span className="text-[var(--primary)]">.</span>
         </Link>
 
         {/* Desktop Links */}
         <nav className="hidden lg:flex items-center space-x-8 font-semibold text-slate-700">
-          <Link
-            href="/"
-            className={`hover:text-[var(--primary)] transition ${pathname === '/' ? 'text-[var(--primary)]' : ''}`}
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className={`hover:text-[var(--primary)] transition ${pathname === '/about' ? 'text-[var(--primary)]' : ''}`}
-          >
-            About
-          </Link>
-
-          {/* Projects Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
-          >
+          {navLinks.map((item) => (
             <Link
-              href="/projects"
-              className={`flex items-center gap-1 hover:text-[var(--primary)] transition py-2 ${
-                pathname === '/projects' ? 'text-[var(--primary)]' : ''
+              key={item.name}
+              href={item.href}
+              className={`hover:text-[var(--primary)] transition ${
+                pathname === item.href ? 'text-[var(--primary)]' : ''
               }`}
             >
-              Projects 
+              {item.name}
             </Link>
-          </div>
-
-          <Link
-            href="/achievements"
-            className={`hover:text-[var(--primary)] transition ${pathname === '/achievements' ? 'text-[var(--primary)]' : ''}`}
-          >
-            Achievements
-          </Link>
-          <Link
-            href="/activities"
-            className={`hover:text-[var(--primary)] transition ${pathname === '/activities' ? 'text-[var(--primary)]' : ''}`}
-          >
-            Activities
-          </Link>
-          <Link
-            href="/contact"
-            className={`hover:text-[var(--primary)] transition ${pathname === '/contact' ? 'text-[var(--primary)]' : ''}`}
-          >
-            Contact
-          </Link>
+          ))}
 
           <a
             href="/cv.pdf"
+            download="Thrichethra_Sivarajah_CV.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white px-5 py-2.5 rounded text-sm font-bold transition shadow-sm"
           >
             <Download className="w-4 h-4" /> Download CV
@@ -87,7 +52,11 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Hamburger */}
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-slate-800">
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle Menu"
+          className="lg:hidden text-slate-800"
+        >
           {mobileOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
         </button>
       </div>
@@ -96,12 +65,25 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-3 font-semibold text-slate-700">
           {navLinks.map((item) => (
-            <Link key={item.name} href={item.href} onClick={() => setMobileOpen(false)} className="block py-2 hover:text-[var(--primary)]">
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={() => setMobileOpen(false)}
+              className={`block py-2 hover:text-[var(--primary)] ${
+                pathname === item.href ? 'text-[var(--primary)]' : ''
+              }`}
+            >
               {item.name}
             </Link>
           ))}
-          <a href="/cv.pdf" className="inline-block bg-[var(--primary)] text-white px-5 py-2.5 rounded text-sm">
-            Download CV
+          <a
+            href="/cv.pdf"
+            download="Thrichethra_Sivarajah_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white px-5 py-2.5 rounded text-sm font-bold"
+          >
+            <Download className="w-4 h-4" /> Download CV
           </a>
         </div>
       )}
