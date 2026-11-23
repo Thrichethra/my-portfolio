@@ -60,6 +60,7 @@ const allProjects = [
       'Created dynamic components for filtering and sorting property listings based on criteria such as location, price, property type, and features, significantly enhancing user discoverability.',
     ],
     githubUrl: 'https://github.com/Thrichethra/Estate-Property',
+    deployUrl: 'https://estate-property.vercel.app/',
     figmaUrl: '',
   },
   {
